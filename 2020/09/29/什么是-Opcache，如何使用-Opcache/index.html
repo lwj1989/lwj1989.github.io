@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>什么是 Opcache，如何使用 Opcache | 心中有码</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Opcode 是啥？我们先看一下 PHP 的执行过程：  PHP 初始化执行环节，启动 Zend 引擎，加载注册的扩展模块。 初始化后读取 PHP 脚本文件，Zend 引擎对 PHP 文件进行词法分析，语法分析，生成语法树。 Zend 引擎编译语法树，生成 Opcode。 Zend 引擎执行 Opcode，返回执行结果。  在 PHP-FPM 模式下，步骤 1 在启动时执行一次，后续的请求中不再执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是 Opcache，如何使用 Opcache">
+<meta property="og:url" content="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/index.html">
+<meta property="og:site_name" content="心中有码">
+<meta property="og:description" content="Opcode 是啥？我们先看一下 PHP 的执行过程：  PHP 初始化执行环节，启动 Zend 引擎，加载注册的扩展模块。 初始化后读取 PHP 脚本文件，Zend 引擎对 PHP 文件进行词法分析，语法分析，生成语法树。 Zend 引擎编译语法树，生成 Opcode。 Zend 引擎执行 Opcode，返回执行结果。  在 PHP-FPM 模式下，步骤 1 在启动时执行一次，后续的请求中不再执">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-29T03:27:19.000Z">
+<meta property="article:modified_time" content="2020-09-29T03:28:04.869Z">
+<meta property="article:author" content="落幕繁华">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="心中有码" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">心中有码</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lwj1989.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-什么是-Opcache，如何使用-Opcache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/" class="article-date">
+  <time datetime="2020-09-29T03:27:19.000Z" itemprop="datePublished">2020-09-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      什么是 Opcache，如何使用 Opcache
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Opcode-是啥？"><a href="#Opcode-是啥？" class="headerlink" title="Opcode 是啥？"></a>Opcode 是啥？</h3><p>我们先看一下 <strong>PHP</strong> 的执行过程：</p>
+<ol>
+<li>PHP 初始化执行环节，启动 Zend 引擎，加载注册的扩展模块。</li>
+<li>初始化后读取 PHP 脚本文件，Zend 引擎对 PHP 文件进行词法分析，语法分析，生成语法树。</li>
+<li>Zend 引擎编译语法树，生成 <strong>Opcode</strong>。</li>
+<li>Zend 引擎执行 <strong>Opcode</strong>，返回执行结果。</li>
+</ol>
+<p>在 PHP-FPM 模式下，<strong>步骤 1</strong> 在启动时执行一次，后续的请求中不再执行；<strong>步骤 2 3 4</strong>每次请求都需要执行一遍。</p>
+<p>2 和 3 生成的语法树和 Opcode ，同一个PHP 脚本每次运行的结果都是一样的。</p>
+<p>而 <strong>OPcache</strong> 就是用来缓存 Opcode 的。</p>
+<h3 id="OPcache"><a href="#OPcache" class="headerlink" title="OPcache"></a>OPcache</h3><p>OPCache 是 Zend 官方出品的，开放自由的 Opcode 缓存扩展，还具有代码优化功能，省去每次加载和解析 PHP 脚本的开销。</p>
+<p>OPcache 通过将 PHP 脚本预编译的字节码存储到共享内存中来提升 PHP 的性能， 存储预编译字节码的好处就是 省去了每次加载和解析 PHP 脚本的开销。</p>
+<blockquote>
+<p>PHP5.5.0以后的版本已经默认包含了 OPCache 扩展。</p>
+</blockquote>
+<p>OPCache 缓存的机制主要是：<strong>将 PHP 编译产生的字节码以及数据缓存到共享内存中，在每次请求，从缓存中直接读取编译后的 opcode，进行执行。</strong></p>
+<h4 id="OPcache-的更新策略"><a href="#OPcache-的更新策略" class="headerlink" title="OPcache 的更新策略"></a>OPcache 的更新策略</h4><p>是缓存，都有过期时间。</p>
+<p>OPCache 的更新策略非常简单，到期数据置为 Wasted，达到设定值，清空缓存，重建缓存。</p>
+<p>因为在高流量的场景下，重建缓存是一件非常耗费资源的事情，所以建议：<strong>不要设置 OPcache 的过期时间</strong>。</p>
+<p>每次发布新代码时，都会出现反复新建缓存的情况。如何避免呢？</p>
+<ul>
+<li><strong>不要在高峰期发布代码</strong>，这是任何情况下都要遵守的规则</li>
+<li>代码预热，比如使用脚本批量调 PHP 访问 URL，或者使用 OPCache 暴露的 API 如 <code>opcache_compile_file()</code> 进行编译缓存</li>
+</ul>
+<h4 id="Opcache-的安装"><a href="#Opcache-的安装" class="headerlink" title="Opcache 的安装"></a>Opcache 的安装</h4><p>因为PHP5.5.0 以后的版本都已经默认安装了 OPCache，但是默认是没有开启的，需要手动开启。</p>
+<p><strong>开发方法：</strong>编辑 <code>php.ini</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;开启扩展</span></span><br><span class="line"><span class="attr">zend_extension</span>=opcache.so</span><br><span class="line"><span class="section">[opcache]</span></span><br><span class="line"><span class="comment">;允许在 web 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable</span>=<span class="number">1</span>	</span><br><span class="line"><span class="comment">;允许在 cli 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable_cli</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>重启 PHP-FPM 和 Nginx。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service php7.2-fpm restart</span><br><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="官网推荐的-php-ini的-OPCache-配置"><a href="#官网推荐的-php-ini的-OPCache-配置" class="headerlink" title="官网推荐的 php.ini的 OPCache 配置"></a>官网推荐的 <code>php.ini</code>的 OPCache 配置</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;允许在 web 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable</span>=<span class="number">1</span></span><br><span class="line"><span class="comment">;允许在 cli 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable_cli</span>=<span class="number">1</span></span><br><span class="line"><span class="comment">;OPcache 的共享内存大小，以兆字节为单位。</span></span><br><span class="line"><span class="attr">opcache.memory_consumption</span>=<span class="number">128</span></span><br><span class="line"><span class="comment">;用来存储预留字符串的内存大小，以兆字节为单位</span></span><br><span class="line"><span class="attr">opcache.interned_strings_buffer</span>=<span class="number">8</span>	</span><br><span class="line"><span class="comment">;OPcache 哈希表中可存储的脚本文件数量上限</span></span><br><span class="line"><span class="attr">opcache.max_accelerated_files</span>=<span class="number">4000</span> </span><br><span class="line"><span class="comment">;检查脚本时间戳是否有更新的周期，以秒为单位。 设置为 0 会导致针对每个请求， OPcache 都会检查脚本更新。如果 opcache.validate_timestamps 配置指令设置为禁用，那么此设置项将会被忽略。</span></span><br><span class="line"><span class="attr">opcache.revalidate_freq</span>=<span class="number">60</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/opcache.configuration.php">其他参数查看官网文档</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/book.opcache.php">PHP 官方 OPcache 扩展文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zybuluo.com/phper/note/1016714">Opcode 是啥以及如何使用好 Opcache</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75869838">PHP OPcache工作原理</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/" data-id="ckfnq18hb0001ruq2cf2u3m53" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          什么是持续集成、持续交付和持续部署
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/php/" style="font-size: 10px;">php</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/">什么是持续集成、持续交付和持续部署</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/">什么是 Opcache，如何使用 Opcache</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 落幕繁华<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
