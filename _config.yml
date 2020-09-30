@@ -100,14 +100,21 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: next
 
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: 'git'
-  repo: git@github.com:lwj1989/lwj1989.github.io.git
-  branch: master
-
 sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+baidu_url_submit:
+  count: 1 
+  host: www.lwj1989.top
+  token: 1i9JjvlAXrleUc68
+  path: baidu_urls.txt
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+- type: 'git'
+  repo: git@github.com:lwj1989/lwj1989.github.io.git
+  branch: master
+- type: baidu_url_submitter
