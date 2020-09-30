@@ -111,11 +111,11 @@ baidu_url_submit:
   token: 1i9JjvlAXrleUc68
   path: baidu_urls.txt
 
-search:
-  path: search.xml
-  field: post
-  content: true
-  format: html
+# search:
+#   path: search.xml
+#   field: post
+#   content: true
+#   format: html
   
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
