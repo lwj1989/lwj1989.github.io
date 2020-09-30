@@ -3,3 +3,6 @@ node_modules/
 public/
 scaffolds
 db.json
+.DS_Store
+.idea/
+package-lock.json
