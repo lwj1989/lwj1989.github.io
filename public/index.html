@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh_CN">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
-  
-  <title>心中有码</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lwj1989.top","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
   <meta name="description" content="后端、Linux、Docker、Mac">
 <meta property="og:type" content="website">
 <meta property="og:title" content="心中有码">
@@ -17,79 +33,323 @@
 <meta property="article:author" content="落幕繁华">
 <meta property="article:tag" content="后端、Linux、Docker、Mac">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="心中有码" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">心中有码</a>
-      </h1>
+<link rel="canonical" href="https://lwj1989.top/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh_CN'
+  };
+</script>
+
+  <title>心中有码</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">心中有码</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">后端、Linux、Docker、Mac</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">落幕繁华</p>
+  <div class="site-description" itemprop="description">后端、Linux、Docker、Mac</div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:393787391@qq.com" title="E-Mail → mailto:393787391@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lwj1989.top"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-什么是持续集成、持续交付和持续部署" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" class="article-date">
-  <time datetime="2020-09-29T03:29:25.000Z" itemprop="datePublished">2020-09-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/">什么是持续集成、持续交付和持续部署</a>
-    </h1>
-  
 
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/09/29/Yaconf-%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E-PHP-%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E9%85%8D%E7%BD%AE%E6%89%A9%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/Yaconf-%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E-PHP-%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E9%85%8D%E7%BD%AE%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">Yaconf 一个用于 PHP 项目的高性能配置扩展</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-09-29 19:34:43 / Modified: 19:45:03" itemprop="dateCreated datePublished" datetime="2020-09-29T19:34:43+08:00">2020-09-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://github.com/laruence/yaconf">Yaconf 仓库</a></p>
+<p>在开发 PHP 的时候，如果需要高性能的配置文件管理扩展，可以使用 <code>yaconf</code>这个扩展。</p>
+<p>使用方法：</p>
+<h3 id="1-安装-yaconf-扩展"><a href="#1-安装-yaconf-扩展" class="headerlink" title="1. 安装 yaconf 扩展"></a>1. 安装 yaconf 扩展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl install yaconf</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-怎么添加-yaconf-配置文件"><a href="#2-怎么添加-yaconf-配置文件" class="headerlink" title="2. 怎么添加 yaconf 配置文件"></a>2. 怎么添加 <code>yaconf</code> 配置文件</h3><ul>
+<li><p>yaconf 的配置文件是一个<code>.ini</code>结尾的文件，在<code> yaconf.directory</code>中配置。</p>
+</li>
+<li><p>这个配置文件一般不和项目放在一起。</p>
+</li>
+<li><p>在 PHP 启动的时候，处理所有要处理的配置，然后这些配置信息就常驻内存了，随着 PHP 的生命周期存亡，避免每次请求的时候解析配置文件。</p>
+</li>
+</ul>
+<p>比如我把它和 <strong>FPM</strong> 的 <code>php.ini</code> 文件放在一起，<code>php-fpm.conf</code>也在这个位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在 fpm 下创建了一个 yaconf 目录，然后把具体的.ini 文件放到这个文件夹下。</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;yaconf</span><br><span class="line">&#x2F;&#x2F;比如我有一个 foo.ini 在这个下面就是</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;yaconf&#x2F;foo.ini</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-yaconf-怎么启用"><a href="#3-yaconf-怎么启用" class="headerlink" title="3. yaconf 怎么启用"></a>3. yaconf 怎么启用</h3><p>我们需要在 <code>php.ini</code> 文件内启用这个扩展，在文件结尾添加下面的文本。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Yaconf]</span></span><br><span class="line"><span class="attr">extension</span>=yaconf.so</span><br><span class="line"><span class="attr">yaconf.directory</span>=/etc/php/<span class="number">7.2</span>/fpm/yaconf</span><br><span class="line"><span class="attr">yaconf.check_delay</span>=<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>yaconf.directory</code>：配置 yaconf 的文件放在哪里</li>
+<li><code>yaconf.check_delay</code>：多久 (秒) 检测一次文件变动，如果是 0 就是不检测，也就是说如果是 0 的时候，文件变更只能通过重启 PHP 重新加载</li>
+</ul>
+<h3 id="4-项目中使用-yaconf-配置"><a href="#4-项目中使用-yaconf-配置" class="headerlink" title="4. 项目中使用 yaconf 配置"></a>4. 项目中使用 yaconf 配置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Yaconf::get(<span class="string">&quot;foo.name&quot;</span>); <span class="comment">//获取配置信息，比如我们需要上面 foo.ini 文件中配置的 name 参数，foo 就是文件名，name 就是参数名</span></span><br><span class="line"></span><br><span class="line">Yaconf::has(<span class="keyword">string</span> $name)；<span class="comment">//检查某个配置文件是否存在，返回 boolean</span></span><br></pre></td></tr></table></figure>
+
+
       
-        <h3 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h3><p><strong>CI</strong> 英文名称<code>Continuous Integration</code>，中文<strong>持续集成</strong>，指的是频繁地（一天多次）将代码集成到主干。</p>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">什么是持续集成、持续交付和持续部署</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-09-29 11:29:25 / Modified: 19:45:03" itemprop="dateCreated datePublished" datetime="2020-09-29T11:29:25+08:00">2020-09-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h3><p><strong>CI</strong> 英文名称<code>Continuous Integration</code>，中文<strong>持续集成</strong>，指的是频繁地（一天多次）将代码集成到主干。</p>
 <p>好处有两个：</p>
 <ol>
 <li><strong>快速发现错误。</strong>每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。</li>
@@ -105,42 +365,67 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" data-id="ckfnq18h70000ruq2c1hyde29" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
     </footer>
-  </div>
+  </article>
   
-</article>
-
-
   
-    <article id="post-什么是-Opcache，如何使用-Opcache" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/" class="article-date">
-  <time datetime="2020-09-29T03:27:19.000Z" itemprop="datePublished">2020-09-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/">什么是 Opcache，如何使用 Opcache</a>
-    </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Opcode-是啥？"><a href="#Opcode-是啥？" class="headerlink" title="Opcode 是啥？"></a>Opcode 是啥？</h3><p>我们先看一下 <strong>PHP</strong> 的执行过程：</p>
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/" class="post-title-link" itemprop="url">什么是 Opcache，如何使用 Opcache</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-09-29 11:27:19 / Modified: 19:45:03" itemprop="dateCreated datePublished" datetime="2020-09-29T11:27:19+08:00">2020-09-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Opcode-是啥？"><a href="#Opcode-是啥？" class="headerlink" title="Opcode 是啥？"></a>Opcode 是啥？</h3><p>我们先看一下 <strong>PHP</strong> 的执行过程：</p>
 <ol>
 <li>PHP 初始化执行环节，启动 Zend 引擎，加载注册的扩展模块。</li>
 <li>初始化后读取 PHP 脚本文件，Zend 引擎对 PHP 文件进行词法分析，语法分析，生成语法树。</li>
@@ -185,115 +470,142 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/" data-id="ckfnq18hb0001ruq2cf2u3m53" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
     </footer>
-  </div>
+  </article>
   
-</article>
-
-
+  
   
 
 
-</section>
-        
-          <aside id="sidebar">
   
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
     </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">落幕繁华</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/php/" style="font-size: 10px;">php</a>
     </div>
-  </div>
+  </footer>
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li></ul>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/">什么是持续集成、持续交付和持续部署</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/">什么是 Opcache，如何使用 Opcache</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 落幕繁华<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
