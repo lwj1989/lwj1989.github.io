@@ -106,3 +106,8 @@ deploy:
   type: 'git'
   repo: git@github.com:lwj1989/lwj1989.github.io.git
   branch: master
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
