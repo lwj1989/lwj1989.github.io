@@ -142,7 +142,7 @@ site_state: false
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   # GitHub: https://github.com/yourname || fab fa-github
-  E-Mail: mailto:393787391@qq.com || fa fa-envelope
+  # E-Mail: mailto:393787391@qq.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -579,8 +579,8 @@ comments:
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: lwj1989-top
   count: true
 
 # DisqusJS
@@ -665,13 +665,13 @@ add_this_id:
 
 # Google Analytics
 google_analytics:
-  tracking_id: # <app_id>
+  tracking_id: UA-128192720-1
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
 
 # Baidu Analytics
-baidu_analytics: # <app_id>
+baidu_analytics: 397089d4cc4719b4ed8c485f002a0fff
 
 # Growingio Analytics
 growingio_analytics: # <project_id>
