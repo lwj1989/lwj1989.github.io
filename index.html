@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="fRigdLp0b3AAIUp9988V4GCsytcLFJmdqDCXsC-SkVs">
+  <meta name="baidu-site-verification" content="code-J0tXPIDwzy">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css">
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lwj1989.top","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="后端、Linux、Docker、Mac">
+<meta property="og:type" content="website">
+<meta property="og:title" content="心中有码">
+<meta property="og:url" content="https://lwj1989.top/index.html">
+<meta property="og:site_name" content="心中有码">
+<meta property="og:description" content="后端、Linux、Docker、Mac">
+<meta property="og:locale">
+<meta property="article:author" content="落幕繁华">
+<meta property="article:tag" content="后端、Linux、Docker、Mac">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lwj1989.top/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>心中有码 - 学而不思则罔,思而不学则殆.</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128192720-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-128192720-1');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?397089d4cc4719b4ed8c485f002a0fff";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">心中有码</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学而不思则罔,思而不学则殆.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-comments">
+
+    <a href="/comments/" rel="section"><i class="fa fa-comments fa-fw"></i>留言</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">落幕繁华</p>
+  <div class="site-description" itemprop="description">后端、Linux、Docker、Mac</div>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/12/07/%E5%A6%82%E4%BD%95%E8%AE%A9ClashX%E5%9C%A8%E5%BC%80%E5%8F%91%E7%9A%84%E6%97%B6%E5%80%99%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0hosts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/07/%E5%A6%82%E4%BD%95%E8%AE%A9ClashX%E5%9C%A8%E5%BC%80%E5%8F%91%E7%9A%84%E6%97%B6%E5%80%99%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0hosts/" class="post-title-link" itemprop="url">如何让ClashX在开发的时候访问本地hosts</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-07 17:53:29 / 修改时间：17:56:30" itemprop="dateCreated datePublished" datetime="2020-12-07T17:53:29+08:00">2020-12-07</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/12/07/%E5%A6%82%E4%BD%95%E8%AE%A9ClashX%E5%9C%A8%E5%BC%80%E5%8F%91%E7%9A%84%E6%97%B6%E5%80%99%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0hosts/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/07/如何让ClashX在开发的时候访问本地hosts/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在使用ClashX的时候，发现本地配置的hosts中的域名无法正常解析，最后确定是代理的问题，搜索后才确定是因为ClashX使用的是远程DNS解析，所以在远程的DNS中是无法找到我们本地配置的域名的。</p>
+<p>那么如何绕过远程解析本地的hosts呢。</p>
+<h3 id="方式一（推荐）"><a href="#方式一（推荐）" class="headerlink" title="方式一（推荐）"></a>方式一（推荐）</h3><p>使用配置文件中的<code>hosts</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hosts:</span></span><br><span class="line">    <span class="attr">smtp.gmail.com:</span> <span class="number">74.125</span><span class="number">.20</span><span class="number">.109</span></span><br><span class="line">    <span class="string">&#x27;*.test&#x27;</span><span class="string">:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>	<span class="comment">#配置后，所有.test域名就会直接从配置的hosts解析，不能走远程DNS了。</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的配置域名如果泛解析不行就直接配置全。</p>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>关闭ClashX配置的远程DNS解析，打开配置文件，修改如下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dns:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来就可以愉快地开发了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/09/29/Yaconf-%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E-PHP-%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E9%85%8D%E7%BD%AE%E6%89%A9%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/Yaconf-%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E-PHP-%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E9%85%8D%E7%BD%AE%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">Yaconf 一个用于 PHP 项目的高性能配置扩展</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-29 19:34:43" itemprop="dateCreated datePublished" datetime="2020-09-29T19:34:43+08:00">2020-09-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-07 17:56:30" itemprop="dateModified" datetime="2020-12-07T17:56:30+08:00">2020-12-07</time>
+      </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/29/Yaconf-%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E-PHP-%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E9%85%8D%E7%BD%AE%E6%89%A9%E5%B1%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/29/Yaconf-一个用于-PHP-项目的高性能配置扩展/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://github.com/laruence/yaconf">Yaconf 仓库</a></p>
+<p>在开发 PHP 的时候，如果需要高性能的配置文件管理扩展，可以使用 <code>yaconf</code>这个扩展。</p>
+<p>使用方法：</p>
+<h3 id="1-安装-yaconf-扩展"><a href="#1-安装-yaconf-扩展" class="headerlink" title="1. 安装 yaconf 扩展"></a>1. 安装 yaconf 扩展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl install yaconf</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-怎么添加-yaconf-配置文件"><a href="#2-怎么添加-yaconf-配置文件" class="headerlink" title="2. 怎么添加 yaconf 配置文件"></a>2. 怎么添加 <code>yaconf</code> 配置文件</h3><ul>
+<li><p>yaconf 的配置文件是一个<code>.ini</code>结尾的文件，在<code> yaconf.directory</code>中配置。</p>
+</li>
+<li><p>这个配置文件一般不和项目放在一起。</p>
+</li>
+<li><p>在 PHP 启动的时候，处理所有要处理的配置，然后这些配置信息就常驻内存了，随着 PHP 的生命周期存亡，避免每次请求的时候解析配置文件。</p>
+</li>
+</ul>
+<p>比如我把它和 <strong>FPM</strong> 的 <code>php.ini</code> 文件放在一起，<code>php-fpm.conf</code>也在这个位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在 fpm 下创建了一个 yaconf 目录，然后把具体的.ini 文件放到这个文件夹下。</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;yaconf</span><br><span class="line">&#x2F;&#x2F;比如我有一个 foo.ini 在这个下面就是</span><br><span class="line">&#x2F;etc&#x2F;php&#x2F;7.2&#x2F;fpm&#x2F;yaconf&#x2F;foo.ini</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-yaconf-怎么启用"><a href="#3-yaconf-怎么启用" class="headerlink" title="3. yaconf 怎么启用"></a>3. yaconf 怎么启用</h3><p>我们需要在 <code>php.ini</code> 文件内启用这个扩展，在文件结尾添加下面的文本。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Yaconf]</span></span><br><span class="line"><span class="attr">extension</span>=yaconf.so</span><br><span class="line"><span class="attr">yaconf.directory</span>=/etc/php/<span class="number">7.2</span>/fpm/yaconf</span><br><span class="line"><span class="attr">yaconf.check_delay</span>=<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>yaconf.directory</code>：配置 yaconf 的文件放在哪里</li>
+<li><code>yaconf.check_delay</code>：多久 (秒) 检测一次文件变动，如果是 0 就是不检测，也就是说如果是 0 的时候，文件变更只能通过重启 PHP 重新加载</li>
+</ul>
+<h3 id="4-项目中使用-yaconf-配置"><a href="#4-项目中使用-yaconf-配置" class="headerlink" title="4. 项目中使用 yaconf 配置"></a>4. 项目中使用 yaconf 配置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Yaconf::get(<span class="string">&quot;foo.name&quot;</span>); <span class="comment">//获取配置信息，比如我们需要上面 foo.ini 文件中配置的 name 参数，foo 就是文件名，name 就是参数名</span></span><br><span class="line"></span><br><span class="line">Yaconf::has(<span class="keyword">string</span> $name)；<span class="comment">//检查某个配置文件是否存在，返回 boolean</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">什么是持续集成、持续交付和持续部署</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-29 11:29:25" itemprop="dateCreated datePublished" datetime="2020-09-29T11:29:25+08:00">2020-09-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-07 17:56:30" itemprop="dateModified" datetime="2020-12-07T17:56:30+08:00">2020-12-07</time>
+      </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E3%80%81%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E5%92%8C%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/29/什么是持续集成、持续交付和持续部署/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h3><p><strong>CI</strong> 英文名称<code>Continuous Integration</code>，中文<strong>持续集成</strong>，指的是频繁地（一天多次）将代码集成到主干。</p>
+<p>好处有两个：</p>
+<ol>
+<li><strong>快速发现错误。</strong>每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。</li>
+<li><strong>防止分支大幅偏离主干。</strong>如果不经常集成，主干又在不断更新，会导致以后集成的难度变大，甚至难以集成。</li>
+</ol>
+<p><strong>持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量。</strong></p>
+<p>核心措施是，代码集成到主干之前，必须通过自动化测试。</p>
+<h3 id="持续交付"><a href="#持续交付" class="headerlink" title="持续交付"></a>持续交付</h3><p><code>持续交付（Continuous delivery）</code>指的是，频繁地将软件的新版本，交付给质量团队或者用户，以供评审。如果评审通过，代码就进入生产阶段。</p>
+<p>持续交付可以看作是持续集成的下一步。它强调的是不管怎么更新，软件是随时可以交付的。</p>
+<h3 id="持续部署"><a href="#持续部署" class="headerlink" title="持续部署"></a>持续部署</h3><p><code>持续部署（continuous deployment）</code>是持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境。</p>
+<p>持续部署的目标是，代码在任何时刻都是可部署的，可以进入生产阶段。</p>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html">持续集成服务 Travis CI 教程</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://lwj1989.top/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="落幕繁华">
+      <meta itemprop="description" content="后端、Linux、Docker、Mac">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心中有码">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/" class="post-title-link" itemprop="url">什么是 Opcache，如何使用 Opcache</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-29 11:27:19" itemprop="dateCreated datePublished" datetime="2020-09-29T11:27:19+08:00">2020-09-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-07 17:56:30" itemprop="dateModified" datetime="2020-12-07T17:56:30+08:00">2020-12-07</time>
+      </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/09/29/%E4%BB%80%E4%B9%88%E6%98%AF-Opcache%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Opcache/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/09/29/什么是-Opcache，如何使用-Opcache/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Opcode-是啥？"><a href="#Opcode-是啥？" class="headerlink" title="Opcode 是啥？"></a>Opcode 是啥？</h3><p>我们先看一下 <strong>PHP</strong> 的执行过程：</p>
+<ol>
+<li>PHP 初始化执行环节，启动 Zend 引擎，加载注册的扩展模块。</li>
+<li>初始化后读取 PHP 脚本文件，Zend 引擎对 PHP 文件进行词法分析，语法分析，生成语法树。</li>
+<li>Zend 引擎编译语法树，生成 <strong>Opcode</strong>。</li>
+<li>Zend 引擎执行 <strong>Opcode</strong>，返回执行结果。</li>
+</ol>
+<p>在 PHP-FPM 模式下，<strong>步骤 1</strong> 在启动时执行一次，后续的请求中不再执行；<strong>步骤 2 3 4</strong>每次请求都需要执行一遍。</p>
+<p>2 和 3 生成的语法树和 Opcode ，同一个PHP 脚本每次运行的结果都是一样的。</p>
+<p>而 <strong>OPcache</strong> 就是用来缓存 Opcode 的。</p>
+<h3 id="OPcache"><a href="#OPcache" class="headerlink" title="OPcache"></a>OPcache</h3><p>OPCache 是 Zend 官方出品的，开放自由的 Opcode 缓存扩展，还具有代码优化功能，省去每次加载和解析 PHP 脚本的开销。</p>
+<p>OPcache 通过将 PHP 脚本预编译的字节码存储到共享内存中来提升 PHP 的性能， 存储预编译字节码的好处就是 省去了每次加载和解析 PHP 脚本的开销。</p>
+<blockquote>
+<p>PHP5.5.0以后的版本已经默认包含了 OPCache 扩展。</p>
+</blockquote>
+<p>OPCache 缓存的机制主要是：<strong>将 PHP 编译产生的字节码以及数据缓存到共享内存中，在每次请求，从缓存中直接读取编译后的 opcode，进行执行。</strong></p>
+<h4 id="OPcache-的更新策略"><a href="#OPcache-的更新策略" class="headerlink" title="OPcache 的更新策略"></a>OPcache 的更新策略</h4><p>是缓存，都有过期时间。</p>
+<p>OPCache 的更新策略非常简单，到期数据置为 Wasted，达到设定值，清空缓存，重建缓存。</p>
+<p>因为在高流量的场景下，重建缓存是一件非常耗费资源的事情，所以建议：<strong>不要设置 OPcache 的过期时间</strong>。</p>
+<p>每次发布新代码时，都会出现反复新建缓存的情况。如何避免呢？</p>
+<ul>
+<li><strong>不要在高峰期发布代码</strong>，这是任何情况下都要遵守的规则</li>
+<li>代码预热，比如使用脚本批量调 PHP 访问 URL，或者使用 OPCache 暴露的 API 如 <code>opcache_compile_file()</code> 进行编译缓存</li>
+</ul>
+<h4 id="Opcache-的安装"><a href="#Opcache-的安装" class="headerlink" title="Opcache 的安装"></a>Opcache 的安装</h4><p>因为PHP5.5.0 以后的版本都已经默认安装了 OPCache，但是默认是没有开启的，需要手动开启。</p>
+<p><strong>开发方法：</strong>编辑 <code>php.ini</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;开启扩展</span></span><br><span class="line"><span class="attr">zend_extension</span>=opcache.so</span><br><span class="line"><span class="section">[opcache]</span></span><br><span class="line"><span class="comment">;允许在 web 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable</span>=<span class="number">1</span>	</span><br><span class="line"><span class="comment">;允许在 cli 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable_cli</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>重启 PHP-FPM 和 Nginx。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service php7.2-fpm restart</span><br><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="官网推荐的-php-ini的-OPCache-配置"><a href="#官网推荐的-php-ini的-OPCache-配置" class="headerlink" title="官网推荐的 php.ini的 OPCache 配置"></a>官网推荐的 <code>php.ini</code>的 OPCache 配置</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;允许在 web 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable</span>=<span class="number">1</span></span><br><span class="line"><span class="comment">;允许在 cli 环境使用</span></span><br><span class="line"><span class="attr">opcache.enable_cli</span>=<span class="number">1</span></span><br><span class="line"><span class="comment">;OPcache 的共享内存大小，以兆字节为单位。</span></span><br><span class="line"><span class="attr">opcache.memory_consumption</span>=<span class="number">128</span></span><br><span class="line"><span class="comment">;用来存储预留字符串的内存大小，以兆字节为单位</span></span><br><span class="line"><span class="attr">opcache.interned_strings_buffer</span>=<span class="number">8</span>	</span><br><span class="line"><span class="comment">;OPcache 哈希表中可存储的脚本文件数量上限</span></span><br><span class="line"><span class="attr">opcache.max_accelerated_files</span>=<span class="number">4000</span> </span><br><span class="line"><span class="comment">;检查脚本时间戳是否有更新的周期，以秒为单位。 设置为 0 会导致针对每个请求， OPcache 都会检查脚本更新。如果 opcache.validate_timestamps 配置指令设置为禁用，那么此设置项将会被忽略。</span></span><br><span class="line"><span class="attr">opcache.revalidate_freq</span>=<span class="number">60</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/opcache.configuration.php">其他参数查看官网文档</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/book.opcache.php">PHP 官方 OPcache 扩展文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zybuluo.com/phper/note/1016714">Opcode 是啥以及如何使用好 Opcache</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75869838">PHP OPcache工作原理</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">落幕繁华</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="/true"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+    <div class="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://lwj1989-top.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+    </div>
+</body>
+</html>
