@@ -6,6 +6,9 @@ git clone git@github.com:lwj1989/lwj1989.github.io.git
 
 cd lwj1989.github.io
 
+//安装hexo
+npm install -g hexo-cli 
+
 rm -rf node_modules && npm install --force
 
 hexo new "文章名"
